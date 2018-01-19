@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/login.css' />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+  </head>
+  <body>
+    <form class="login-body">
+    	<div class="login-hd">
+    		<img src="images/shopex.png" alt="shopex" class="logo">
+    	</div>
+    	<div class="center-wrap">
+    		<div class="login-center">
+    			<img src="images/ecshop-logo.png" width="248" height="65">
+    		</div>
+    		<div class="z-bd">
+    			<div class="login-panel">
+    				<div class="controls first">
+    					<span><img src="images/1.png"></span>
+    					<input type="text" id="username" placeholder="用户名">
+    				</div>
+    				<div class="controls two">
+    					<span><img src="images/2.png"></span>
+    					<input type="text" id="psw" placeholder="密码">
+    				</div>
+    				<div class="controls third">
+    					<span><img src="images/3.png"></span>
+    					<input type="text" id="captcha" placeholder="验证码">
+    					<div style="position: absolute;right: 8px; top: 8px;">
+    						<span class="YZM" onclick="GetYzm()">
+    							<img id="YZM-TU" src="http://www.doudoufei.top/shops/admin/index.php?act=captcha&"+ Math.random()>
+    						</span>
+    						
+    					</div>
+    				</div>
+    				<div class="controls btnd">
+    					<input type="button" class="btn-a" value="登录" onclick="login()">
+    				</div>
+    				<div class="controls bside">
+    					<input type="checkbox" name="remember" id="remember">
+    					<label for="remember">保存登录信息</label>
+    					<a href="" class="link-forget">忘记密码？</a>
+    					<a href="" class="link-home">去店铺首页>></a>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </form>
+  </body>
+  <script type="text/javascript">
+  	
+  	function GetYzm () {
+  		var YZMTU = document.getElementById("YZM-TU");
+  		YZMTU.src = "http://www.doudoufei.top/shops/admin/index.php?act=captcha&"+ Math.random();
+  	}
+
+  	function login() {
+		$.ajax({
+			url: "/api/loginajax",
+			type: "post",
+			data: {
+				username: $("#username").val(),
+				psw: $("#psw").val(),
+				captcha:$("#captcha").val()
+
+			},
+			success: function(res) {
+				if(res.code == 1) {
+					alert(res.message);
+					location.href = "/list";
+				} else {
+					alert(res.message);
+				}
+			}
+		})
+	}
+  </script>
+</html>

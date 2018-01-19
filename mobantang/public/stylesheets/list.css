@@ -1,0 +1,407 @@
+
+a{font-size: 12px;text-decoration: none;}
+#header-div{
+	background: #303030;
+	height: 76px;
+}
+#logo-div{
+	width: 262px;
+	height: 45px;
+	float: left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+#submenu-div{
+	width: 1000px;
+	height: 75px;
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+#submenu-div>ul{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+#submenu-div>ul>li{
+	float: right;
+	width: 82px;
+	height: 76px;
+}
+#submenu-div>ul>li:hover{
+	background: #404040;
+}
+#submenu-div>ul>li>a{
+	text-align: center;
+	height: 67px;
+	width: 76px;
+	padding-top: 8px;
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+#submenu-div>ul>li>a>img{
+	margin: auto;
+	display: block;
+	height: 35px;
+}
+#submenu-div>ul>li>a>span{
+	margin-top: 6px;
+	display: block;
+}
+
+
+#menu-div{
+	background: #575757;
+	height: 41px;
+	border-bottom: 1px solid #212121;
+	white-space: nowrap;
+	overflow: hidden;
+}
+#menu-div>ul{
+	margin: 0px 0px 0px 15px;
+	padding: 0;
+	list-style-type: none;
+}
+#menu-div>ul>li{
+	float: left;
+	display: block;
+	height: 41px;
+	line-height: 41px;
+	position: relative;
+	text-align: center;
+
+}
+#menu-div>ul>li:hover{
+	background: #404040;
+}
+#menu-div>ul>li>a{
+	color: #fff;
+}
+#menu-div>ul>li>a>img{
+	display: inline-block;
+	vertical-align: middle;
+	margin:0 5px;
+}
+.num{
+	background: url(../images/index-11_22.png) no-repeat scroll;
+	width: 32px;
+	height: 16px;
+	display: inline-block;
+	line-height: 16px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+/*菜单*/
+
+#tabber-zdiv{
+	width: 100%;
+	position: absolute;
+	top:118px;
+	bottom: 0px;
+}
+
+#tabbar-div{
+	width: 180px;
+	height: 100%;
+	overflow-y: auto;
+	float: left;
+}
+.daohang{
+	padding-left: 10px;
+	height: 34px;
+	line-height: 34px;
+	padding-top: 0px;
+	background: #303030;
+	
+	color: #fff;
+	font-size: 14px;
+}
+#menu-ul{
+	height: 100%;
+	width: 163px;
+}
+.ico_15{
+	width: 163px;
+	background: #575757 url(../images/menu_15.png) 9px 0 no-repeat;
+	
+}
+.collapse{
+	text-indent: 40px;
+	display: block;
+	border-top: #7f7f7f 1px solid;
+	width: 100%;
+	color: #fff;
+	line-height: 42px;
+	text-align: left;
+	cursor: pointer;
+	font-size: 12px;
+}
+.menu-iul{
+	display: none;
+}
+.menu-item{
+	
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	font-size: 12px;
+	color: #d7d7d7;
+	
+}
+.menu-item a{
+	color: #d7d7d7;
+}
+.menu-item:hover{
+	color: #fff;
+	background: #908f8e;
+}
+
+
+/*--主体部分--*/
+#tabber-main{
+	height: 100%;
+	
+	overflow: auto;
+}
+#shop-list{
+	width: 100%;
+	height: 100%;
+	/*display: none;*/
+	overflow: auto;
+}
+.action-span>a{
+	float: right;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px 0 23px;
+	background: #c43926 url(../images/icon_add02.gif) no-repeat 6px center;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 13px;
+	font-weight: normal;
+	text-align: center;
+	cursor: pointer;
+}
+#shop-header{
+	height: 50px;
+	white-space: nowrap;
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	padding: 7px 10px;
+	margin: 0 0 10px 0;
+	overflow: hidden;
+
+}
+
+#shop-header>h1{
+	display: inline-block;
+	font-size: 22px;
+}
+#shop-header>i{
+	display: inline-block;
+	vertical-align: middle;
+}
+#shop-header>i>img{
+	display: inline-block;
+	
+}
+.action-span1{
+	font-size: 20px;
+}
+
+.form-div{
+	background: #f3f3f3 url(../images/th_bg.gif) repeat-x;
+	border:1px solid #ddd;
+	padding: 5px;
+	color: #808080;
+	margin: 0 0 10px 0;
+}
+.form-div>form{
+	display: block;
+}
+.form-div>form>img{
+	vertical-align: middle;
+}
+.form-div .button{
+	padding: 5px 15px 5px;
+	margin: 2px 2px;
+	border:none;
+	background: #ff3f3f;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.list-div{
+	border:0;
+	width: 100%;
+}
+.list-div table{
+	width: 100%;
+	background: #ddd;
+}
+.list-div table tr{
+	
+}
+.list-div table tr th{
+	line-height: 39px;
+	background: #f3f3f3 url(../images/th_bg.gif) repeat-x;
+	white-space: nowrap;
+
+}
+.list-div table tr th a{
+	color: #000;
+}
+
+#shop-add{
+	width: 100%;
+}
+
+.tab-div{
+	background: #f3f3f3;
+	border:1px solid #d7d7d7;
+	margin: 0 0 10px 0;
+	padding: 1px;
+}
+#tab-inp{
+	margin-top: 0px;
+	background: #efefef;
+	padding-left: 10px;
+	height: 39px;
+}
+.tab-back{
+	padding: 0 20px;
+	text-align: center;
+	font-size: 13px;
+	display: block;
+	float: left;
+	color: #787878;
+	line-height: 39px;
+	cursor: pointer;
+	
+}
+.tab-front{
+	background: #fefefe;
+	height: 39px;
+	line-height: 39px;
+	display: block;
+	float: left;
+	padding: 0 20px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 12px;
+}
+#tabbody{
+	padding: 10px;
+	background: #fefefe;
+}
+
+#tabbody>form table{
+	width: 90%;
+	height: 100%;
+	/*display: table;*/
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: grey;
+	
+}
+.label{
+	text-align: right;
+	vertical-align: top;
+	font-weight: bold;
+	padding: 5px 1em;
+	width: 30%;
+	line-height: 30px;
+	font-size: 12px;
+}
+
+#general-table tbody{
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+#general-table tbody tr{
+	display: table-row;
+	vertical-align: inherit;
+	border-color: inherit;
+}
+.notice-span{
+	color: #666;
+	font-size: 12px;
+}
+.special{
+	margin: 0 5px;
+	padding: 1px 5px;
+	border:1px solid #91C4D0;
+	border-right: 2px solid #278296;
+	border-bottom: 2px solid #278296;
+	background: #DDEEF2;
+	text-decoration: none;
+	font-weight: 400;
+	color: #335864;
+}
+.require-field{
+	margin-left: 1em;
+	font: 12px verdana;
+	color: #FF0000;
+}
+.button{
+	padding: 5px 15px 5px;
+	margin: 2px 2px;
+	border:none;
+	background: #ff3f3f;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+
+.xuan-yin{
+	display: none;
+}
+
+
+
+
+
+
+.button-div{
+	text-align: center;
+	padding: 3px 0;
+}
+
+.turn-page{
+	text-align: right;
+	font-size: 12px;
+}
+.turn-page span{
+	font-size: 12px;
+}
+.turn-page span a{
+	color: #000;
+}
+
+.list-div table tr{
+	background: #fff;
+	height: 49px;
+
+}
+.list-div table tr td{
+	text-align: center;
+	font-size: 12px;
+}
+
+/*--底部--*/
+#footer{
+	background: #f3f3f3 url(../images/th_bg.gif) repeat-x;
+	border:1px solid #ddd;
+	padding: 15px;
+	color: #9CACAF;
+	margin: 10px 0;
+	text-align: center;
+	font-size: 12px;
+	margin-bottom: 30px;
+}

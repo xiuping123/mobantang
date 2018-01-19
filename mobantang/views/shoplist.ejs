@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/list.css' />
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="shop-list">
+	    		<!-- 头部 -->
+	    		<div id="shop-header">
+					<h1>ECSHOP管理中心</h1>
+					<span class="action-span1">-商品列表</span>
+					<i><img src="images/jnsy.png"></i>
+	    			<span class="action-span">
+	    				<a href="">添加新商品</a>
+	    			</span>
+	    		</div>
+				<!-- 搜索 -->
+	    		<div class="form-div">
+	    			<form>
+	    				<img src="images/icon_search.gif" width="26" height="22">
+	    				<select name="cat_id" style="width: 158px">
+	    					<option value="0">所有分类</option>
+	    				</select>
+	    				<select name="brand_id" style="width: 105px">
+	    					<option value="0">所有品牌</option>
+	    				</select>
+	    				<select name="intro_type" style="width: 72px">
+	    					<option value="0">全部</option>
+	    				</select>
+	    				<select name="is_on_sale" style="width: 58px">
+	    					<option value="0">全部</option>
+	    				</select>
+	    				<span>关键字</span>
+	    				<input type="text" name="keyword" size="15" id="keyword">
+	    				<input type="submit" value="搜索" class="button">
+	    			</form>
+	    		</div>
+
+	    		<div class="list-div" id="list-div1">
+	    			<table cellpadding="3" cellspacing="1">
+	    				<tbody>
+	    					<tr>
+	    						<th>
+	    							<input type="checkbox" name="">
+	    							<a href="">编号</a>
+	    							<img src="images/sort_desc.gif">
+	    						</th>
+	    						<th>
+	    							<a href="">商品名称</a>
+	    						</th>
+	    						<th>
+	    							<a href="">货号</a>
+	    						</th>
+	    						<th>
+	    							<a href="">价格</a>
+	    						</th>
+	    						<th>
+	    							<a href="">上架</a>
+	    						</th>
+	    						<th>
+	    							<a href="">精品</a>
+	    						</th>
+	    						<th>
+	    							<a href="">新品</a>
+	    						</th>
+	    						<th>
+	    							<a href="">热销</a>
+	    						</th>
+	    						<th>
+	    							<a href="">推荐排序</a>
+	    						</th>
+	    						<th>
+	    							<a href="">库存</a>
+	    						</th>
+	    						<th>
+	    							<a href="">虚拟销量</a>
+	    						</th>
+	    						<th>
+	    							<a href="">操作</a>
+	    						</th>
+	    					</tr>
+	    				</tbody>
+	    			</table>
+	    			<div class="turn-page">
+	    					总计
+	    					<span id="totalRecords">22</span>
+	    					个记录分为
+	    					<span id="totalPages">2</span>
+	    					页当前第
+	    					<input type="text" name="" size="1" id="pagenow" value="1">
+	    					页，每页
+	    					<input type="text" name="" size="3" id="pageSize" value="15">
+
+	    					<span>
+	    						<a href="javascript:;" onclick="first()">第一页</a>
+	    						<a href="javascript:;" onclick="last()">上一页</a>
+	    						<a href="javascript:;" onclick="next()">下一页</a>
+	    						<a href="javascript:;" onclick="end()">最末页</a>
+	    						<select>
+	    							<option>1</option>
+	    							<option>2</option>
+
+	    						</select>
+	    					</span>
+	    				</div>
+	    		</div>
+	    	</div>
+
+	<div id="footer">
+	    		
+共执行 9 个查询，用时 0.025606 秒，Gzip 已禁用，内存占用 3.578 MB<br>
+
+版权所有 © 2005-2018 上海商派软件有限公司，并保留所有权利。
+	    	</div>
+  </body>
+  <script type="text/javascript">
+  	 AppendStr();
+  	//点击下一页
+  	var pages = 1;
+  	var paged = "";
+  	function next () {
+  		var page = $("#pagenow").val();
+  		pages = Number(page)+1;
+  		$("#pagenow").val(pages);
+  		$(".shuju").remove();
+  		AppendStr(pages);
+  	}
+  	function first () {
+  		pages = 1;
+  		$("#pagenow").val(pages);
+  		$(".shuju").remove();
+  		AppendStr(pages);
+  	}
+  	function last () {
+  		var page = $("#pagenow").val();
+  		pages = Number(page)-1;
+  		$("#pagenow").val(pages);
+  		$(".shuju").remove();
+  		AppendStr(pages);
+  	}
+  	function end () {
+  		pages = paged;
+  		$("#pagenow").val(pages);
+  		$(".shuju").remove();
+  		AppendStr(pages);
+  	}
+  	console.log($("#pagenow").val(),$("#pageSize").val())
+
+  	//查询到数据并生成
+  	function AppendStr (pages) {
+  		$.ajax({
+	  		url: "/api/listajax",
+	  		type: "get",
+	  		data: {
+	  			condition:1,
+	  			pageNO:pages,
+	  			perPageCnt:$("#pageSize").val()
+	  		},
+	  		success:function (res) {
+	  			console.log(res);
+	  			var data = res.data;
+	  			var len = data.length;
+	  			paged = Math.ceil(Number(res.total)/Number(res.perPageCnt));
+	  			console.log(res.total,res.perPageCnt);
+	  			$("#totalRecords").html(res.total);
+	  			$("#totalPages").html(res.pageNO);
+	  			$("#totalPages").html(paged);
+	  			for(var i=len-1; i>=0; i--){
+	  				var str = `<tr class="shuju"  style="background = '#fff'">
+						<td >${i+1}</td>
+						<td >${data[i].shopname}</td>
+						<td >${data[i].shopnum}</td>
+						<td >${data[i].shopprice}</td>
+						<td ><a href=""><img src="images/yes.gif"></a></td>
+						<td ><a href=""><img src="images/yes.gif"></a></td>
+						<td ><a href=""><img src="images/yes.gif"></a></td>
+						<td ><a href=""><img src="images/yes.gif"></a></td>
+						<td >${100}</td>
+						<td >${data[i].shopsales}</td>
+						<td >${data[i].shopstcok}</td>
+						<td >
+							<a href=""><img src="images/icon_view.gif"></a>
+							<a href="javascript:;"><img class="bianji" src="images/icon_edit.gif"></a>
+							<a href=""><img src="images/icon_copy.gif"></a>
+							<a href="javascript:;" ><img class="shuju2" src="images/icon_trash.gif"></a>
+						</td>
+	  				</tr>`;
+	  				$("#list-div1 table").append(str);
+	  			}
+	  		}
+  		}) 
+  	}
+
+  	//删除信息
+  	$("#list-div1 table").delegate(".shuju2","click",function () {
+  		$(this).parents("tr").remove();
+  		var sname = $(this).parents("tr").find("td").eq(1).html();
+  		
+  		$.ajax({
+  			url:"/api/removedata",
+  			type:"post",
+  			data:{
+  				sname:sname
+  			},
+  			success:function () {
+  				alert("删除成功");
+
+  			}
+  		})
+  	})
+  	//编辑信息
+  	$("#list-div1 table").delegate(".bianji","click",function () {
+  		var uname = $(this).parents("tr").find("td").eq(1).html();
+  		
+  		$.ajax({
+  			url:"/api/updatedata",
+  			type:"post",
+  			data:{
+  				uname:uname
+  			},
+  			success:function (res) {
+  				//console.log(res[0].shopname);
+  				var ushopname = encodeURIComponent(res[0].shopname) ;
+  				var ushopnum = res[0].shopnum;
+  				var ushopprice = res[0].shopprice;
+  				window.location = "/shopadd?"+ushopname+"&"+ushopnum+"&"+ushopprice;
+
+  			}
+  		})
+  	})
+
+
+  	
+  	
+  </script>
+</html>
